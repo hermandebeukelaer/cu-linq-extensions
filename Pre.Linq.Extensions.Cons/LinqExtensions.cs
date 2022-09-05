@@ -10,17 +10,16 @@ namespace Pre.Linq.Extensions.Cons
     {
         private static readonly Random random = new Random();
 
-        public static IEnumerable<int> ElementsAtEvenPositions(this IEnumerable<int> enumerable)
+        public static int TakeRandom(this IEnumerable<int> enumerable)
         {
-            bool evenIndex = true;
-            foreach(int number in enumerable)
-            {
-                if (evenIndex)
-                {
-                    yield return number;
-                }
-                evenIndex = !evenIndex;
-            }
+            int randomIndex = random.Next(enumerable.Count());
+            return enumerable.ElementAt(randomIndex);
+        }
+
+        public static T TakeRandom<T>(this IEnumerable<T> enumerable)
+        {
+            int randomIndex = random.Next(enumerable.Count());
+            return enumerable.ElementAt(randomIndex);
         }
 
         public static IEnumerable<T> ElementsAtEvenPositions<T>(this IEnumerable<T> enumerable)
@@ -34,18 +33,6 @@ namespace Pre.Linq.Extensions.Cons
                 }
                 evenIndex = !evenIndex;
             }
-        }
-
-        public static int TakeRandom(this IEnumerable<int> enumerable)
-        {
-            int randomIndex = random.Next(enumerable.Count());
-            return enumerable.ElementAt(randomIndex);
-        }
-
-        public static T TakeRandom<T>(this IEnumerable<T> enumerable)
-        {
-            int randomIndex = random.Next(enumerable.Count());
-            return enumerable.ElementAt(randomIndex);
         }
     }
 }

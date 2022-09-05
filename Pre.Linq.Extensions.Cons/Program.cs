@@ -1,7 +1,7 @@
 ﻿using Pre.Linq.Extensions.Cons;
 
 List<int> numbers = new() { 1, 3, 0, 6, 8, 11, 14, 8, 2 };
-List<string> names = new() { "Alice", "Bob", "Carol", "Dave", "Eve" };
+string[] names = { "Alice", "Bob", "Carol", "Dave", "Eve" };
 
 var numbersAtEvenPosition = numbers.ElementsAtEvenPositions();
 
